@@ -1,0 +1,97 @@
+import { loggerService } from '@logger'
+import { isLinux, isMac, isWin } from '@main/constant'
+import { BrowserWindow } from 'electron'
+import { powerMonitor } from 'electron'
+
+const logger = loggerService.withContext('PowerMonitorService')
+
+type ShutdownHandler = () => void | Promise<void>
+
+export class PowerMonitorService {
+  private static instance: PowerMonitorService
+  private initialized = false
+  private shutdownHandlers: ShutdownHandler[] = []
+
+  private constructor() {}
+
+  public static getInstance(): PowerMonitorService {
+    if (!PowerMonitorService.instance) {
+      PowerMonitorService.instance = new PowerMonitorService()
+    }
+    return PowerMonitorService.instance
+  }
+
+  public registerShutdownHandler(handler: ShutdownHandler): void {
+    this.shutdownHandlers.push(handler)
+    logger.info('Shutdown handler registered', { totalHandlers: this.shutdownHandlers.length })
+  }
+
+  public init(): void {
+    if (this.initialized) {
+      logger.warn('PowerMonitorService already initialized')
+      return
+    }
+
+    if (isWin) {
+      this.initWindowsShutdownHandler()
+    } else if (isMac || isLinux) {
+      this.initElectronPowerMonitor()
+    }
+
+    this.initialized = true
+    logger.info('PowerMonitorService initialized', { platform: process.platform })
+  }
+
+  private async executeShutdownHandlers(): Promise<void> {
+    logger.info('Executing shutdown handlers', { count: this.shutdownHandlers.length })
+    for (const handler of this.shutdownHandlers) {
+      try {
+        await handler()
+      } catch (error) {
+        logger.error('Error executing shutdown handler', error as Error)
+      }
+    }
+  }
+
+  private initWindowsShutdownHandler(): void {
+    try {
+      // Dynamic require to handle missing native module gracefully
+      let ElectronShutdownHandler: any
+      try {
+        ElectronShutdownHandler = require('@paymoapp/electron-shutdown-handler')
+      } catch (_e) {
+        logger.warn('electron-shutdown-handler native module not available, falling back to powerMonitor')
+        this.initElectronPowerMonitor()
+        return
+      }
+
+      const zeroMemoryWindow = new BrowserWindow({ show: false })
+      ElectronShutdownHandler.setWindowHandle(zeroMemoryWindow.getNativeWindowHandle())
+
+      ElectronShutdownHandler.on('shutdown', async () => {
+        logger.info('System shutdown event detected (Windows)')
+        await this.executeShutdownHandlers()
+        ElectronShutdownHandler.releaseShutdown()
+      })
+
+      logger.info('Windows shutdown handler registered')
+    } catch (error) {
+      logger.error('Failed to initialize Windows shutdown handler', error as Error)
+    }
+  }
+
+  private initElectronPowerMonitor(): void {
+    try {
+      powerMonitor.on('shutdown', async () => {
+        logger.info('System shutdown event detected', { platform: process.platform })
+        await this.executeShutdownHandlers()
+      })
+
+      logger.info('Electron powerMonitor shutdown listener registered')
+    } catch (error) {
+      logger.error('Failed to initialize Electron powerMonitor', error as Error)
+    }
+  }
+}
+
+export default PowerMonitorService.getInstance()

@@ -1,0 +1,255 @@
+[WARN] The "pnpm" field in package.json is no longer read by pnpm. The following keys were ignored: "pnpm.overrides", "pnpm.patchedDependencies", "pnpm.onlyBuiltDependencies". See https://pnpm.io/settings for the new home of each setting.
+Scope: all 4 workspace projects
+Lockfile is up to date, resolution step is skipped
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Packages: +2473
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 2473, reused 483, downloaded 0, added 0
+Progress: resolved 2473, reused 1297, downloaded 0, added 0
+Progress: resolved 2473, reused 2448, downloaded 0, added 1
+Progress: resolved 2473, reused 2452, downloaded 0, added 5
+Progress: resolved 2473, reused 2452, downloaded 0, added 124
+Progress: resolved 2473, reused 2452, downloaded 0, added 245
+Progress: resolved 2473, reused 2452, downloaded 0, added 403
+Progress: resolved 2473, reused 2452, downloaded 0, added 453
+Progress: resolved 2473, reused 2452, downloaded 0, added 531
+Progress: resolved 2473, reused 2452, downloaded 0, added 555
+Progress: resolved 2473, reused 2452, downloaded 0, added 587
+Progress: resolved 2473, reused 2452, downloaded 0, added 619
+Progress: resolved 2473, reused 2452, downloaded 0, added 716
+Progress: resolved 2473, reused 2452, downloaded 0, added 789
+Progress: resolved 2473, reused 2452, downloaded 1, added 823
+Progress: resolved 2473, reused 2452, downloaded 1, added 939
+Progress: resolved 2473, reused 2452, downloaded 1, added 967
+Progress: resolved 2473, reused 2452, downloaded 1, added 976
+Progress: resolved 2473, reused 2452, downloaded 1, added 996
+Progress: resolved 2473, reused 2452, downloaded 1, added 997
+Progress: resolved 2473, reused 2452, downloaded 1, added 1008
+Progress: resolved 2473, reused 2452, downloaded 1, added 1083
+Progress: resolved 2473, reused 2452, downloaded 1, added 1147
+Progress: resolved 2473, reused 2452, downloaded 1, added 1180
+Progress: resolved 2473, reused 2452, downloaded 1, added 1206
+Progress: resolved 2473, reused 2452, downloaded 1, added 1216
+Progress: resolved 2473, reused 2452, downloaded 1, added 1234
+Progress: resolved 2473, reused 2452, downloaded 1, added 1243
+Progress: resolved 2473, reused 2452, downloaded 1, added 1273
+Progress: resolved 2473, reused 2452, downloaded 1, added 1324
+Progress: resolved 2473, reused 2452, downloaded 1, added 1372
+Progress: resolved 2473, reused 2452, downloaded 1, added 1394
+Progress: resolved 2473, reused 2452, downloaded 1, added 1425
+Progress: resolved 2473, reused 2452, downloaded 1, added 1494
+Progress: resolved 2473, reused 2452, downloaded 1, added 1543
+Progress: resolved 2473, reused 2452, downloaded 1, added 1646
+Progress: resolved 2473, reused 2452, downloaded 1, added 1706
+Progress: resolved 2473, reused 2452, downloaded 1, added 1763
+Progress: resolved 2473, reused 2452, downloaded 1, added 1847
+Progress: resolved 2473, reused 2452, downloaded 1, added 1947
+Progress: resolved 2473, reused 2452, downloaded 1, added 2013
+Progress: resolved 2473, reused 2452, downloaded 1, added 2089
+Progress: resolved 2473, reused 2452, downloaded 1, added 2126
+Progress: resolved 2473, reused 2452, downloaded 1, added 2187
+Progress: resolved 2473, reused 2452, downloaded 1, added 2243
+Progress: resolved 2473, reused 2452, downloaded 1, added 2269
+Progress: resolved 2473, reused 2452, downloaded 1, added 2312
+Progress: resolved 2473, reused 2452, downloaded 1, added 2401
+Progress: resolved 2473, reused 2452, downloaded 1, added 2465
+Progress: resolved 2473, reused 2452, downloaded 1, added 2466
+Progress: resolved 2473, reused 2452, downloaded 1, added 2467
+Progress: resolved 2473, reused 2452, downloaded 1, added 2469
+Progress: resolved 2473, reused 2452, downloaded 1, added 2471
+Progress: resolved 2473, reused 2452, downloaded 1, added 2472
+Progress: resolved 2473, reused 2452, downloaded 1, added 2472, done
+.../node_modules/msw postinstall$ node -e "import('./config/scripts/postinstall.js').catch(() => void 0)"
+.../node_modules/electron postinstall$ node install.js
+.../node_modules/msw postinstall: Done
+.../node_modules/protobufjs postinstall$ node scripts/postinstall
+.../node_modules/protobufjs postinstall: Done
+.../node_modules/@j178/prek postinstall$ node ./install.js
+.../node_modules/@swc/core postinstall$ node postinstall.js
+.../node_modules/@swc/core postinstall: Done
+.../esbuild@0.25.12/node_modules/esbuild postinstall$ node install.js
+.../node_modules/@j178/prek postinstall: Downloading release from https://github.com/j178/prek/releases/download/v0.3.4/prek-x86_64-pc-windows-msvc.zip
+.../node_modules/electron-winstaller install$ node ./script/select-7z-arch.js
+.../node_modules/electron-winstaller install: Selecting 7-Zip for arch x64
+.../node_modules/electron-winstaller install: Done
+.../esbuild@0.25.12/node_modules/esbuild postinstall: Done
+.../@paymoapp/electron-shutdown-handler install$ node install.js
+.../node_modules/registry-js install$ prebuild-install || node-gyp rebuild
+.../@paymoapp/electron-shutdown-handler install: Building addon
+.../node_modules/registry-js install: (node:10340) [DEP0176] DeprecationWarning: fs.R_OK is deprecated, use fs.constants.R_OK instead
+.../node_modules/registry-js install: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../@paymoapp/electron-shutdown-handler install: npm warn Unknown env config "npm-globalconfig". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+.../@paymoapp/electron-shutdown-handler install: npm warn Unknown env config "supported-architectures". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+.../@paymoapp/electron-shutdown-handler install: npm warn Unknown env config "verify-deps-before-run". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+.../@paymoapp/electron-shutdown-handler install: npm warn Unknown env config "_jsr-registry". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+.../@paymoapp/electron-shutdown-handler install: > @paymoapp/electron-shutdown-handler@1.1.2 install:win32
+.../@paymoapp/electron-shutdown-handler install: > prebuild-install -r napi || node-gyp rebuild
+.../@paymoapp/electron-shutdown-handler install: (node:12472) [DEP0176] DeprecationWarning: fs.R_OK is deprecated, use fs.constants.R_OK instead
+.../@paymoapp/electron-shutdown-handler install: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../node_modules/selection-hook install$ node-gyp-build
+.../node_modules/selection-hook install: Done
+.../sharp@0.34.5/node_modules/sharp install$ node install/check.js || npm run build
+.../sharp@0.34.5/node_modules/sharp install: Done
+.../node_modules/@scarf/scarf postinstall$ node ./report.js
+.../node_modules/registry-js install: prebuild-install WARN install Request timed out
+.../node_modules/registry-js install: D:\codex\小豆万象\CherryHQ-cherry-studio\cherry-studio-1.9.9\node_modules\.pnpm\registry-js@1.16.1\node_modules\registry-js>if not defined npm_config_node_gyp (node "D:\.pnpm-store\v11\links\@\pnpm\10.27.0\1a120c049688e12cd6aba74b0e72d92e185dfcdad4f9d1ba4149728e22fce575\node_modules\pnpm\dist\node-gyp-bin\\..\node_modules\node-gyp\bin\node-gyp.js" rebuild )  else (node "D:\.pnpm-store\v11\links\@\pnpm\10.27.0\1a120c049688e12cd6aba74b0e72d92e185dfcdad4f9d1ba4149728e22fce575\node_modules\pnpm\dist\node_modules\node-gyp\bin\node-gyp.js" rebuild ) 
+.../node_modules/registry-js install: gyp info it worked if it ends with ok
+.../node_modules/registry-js install: gyp info using node-gyp@11.5.0
+.../node_modules/registry-js install: gyp info using node@24.14.1 | win32 | x64
+.../node_modules/@scarf/scarf postinstall: Done
+.../node_modules/tesseract.js postinstall$ opencollective-postinstall || true
+.../node_modules/registry-js install: (node:16060) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+.../node_modules/registry-js install: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../node_modules/registry-js install: (node:16060) [DEP0190] DeprecationWarning: Passing args to a child process with shell option true can lead to security vulnerabilities, as the arguments are not escaped, only concatenated.
+.../node_modules/tesseract.js postinstall: [96m[1mThank you for using tesseract.js![96m[1m
+.../node_modules/tesseract.js postinstall: [0m[96mIf you rely on this package, please consider supporting our open collective:[22m[39m
+.../node_modules/tesseract.js postinstall: > [94mhttps://opencollective.com/tesseractjs/donate[0m
+.../node_modules/tesseract.js postinstall: Done
+.../@paymoapp/electron-shutdown-handler install: prebuild-install warn install Request timed out
+.../node_modules/registry-js install: gyp ERR! find Python 
+.../node_modules/registry-js install: gyp ERR! find Python Python is not set from command line or npm configuration
+.../node_modules/registry-js install: gyp ERR! find Python Python is not set from environment variable PYTHON
+.../node_modules/registry-js install: gyp ERR! find Python checking if the py launcher can be used to find Python 3
+.../node_modules/registry-js install: gyp ERR! find Python - executable path is ""
+.../node_modules/registry-js install: gyp ERR! find Python - "" could not be run
+.../node_modules/registry-js install: gyp ERR! find Python checking if "python3" can be used
+.../node_modules/registry-js install: gyp ERR! find Python - executable path is ""
+.../node_modules/registry-js install: gyp ERR! find Python - "" could not be run
+.../node_modules/registry-js install: gyp ERR! find Python checking if "python" can be used
+.../node_modules/registry-js install: gyp ERR! find Python - executable path is ""
+.../node_modules/registry-js install: gyp ERR! find Python - "" could not be run
+.../node_modules/registry-js install: gyp ERR! find Python checking if Python is C:\Users\sun\AppData\Local\Programs\Python\Python311\python.exe
+.../node_modules/registry-js install: gyp ERR! find Python - version is ""
+.../node_modules/registry-js install: gyp ERR! find Python - version is  - should be >=3.6.0
+.../node_modules/registry-js install: gyp ERR! find Python - THIS VERSION OF PYTHON IS NOT SUPPORTED
+.../node_modules/registry-js install: gyp ERR! find Python - "C:\Users\sun\AppData\Local\Programs\Python\Python311\python.exe" could not be run
+.../node_modules/registry-js install: gyp ERR! find Python checking if Python is C:\Program Files\Python311\python.exe
+.../node_modules/registry-js install: gyp ERR! find Python - version is ""
+.../node_modules/registry-js install: gyp ERR! find Python - version is  - should be >=3.6.0
+.../node_modules/registry-js install: gyp ERR! find Python - THIS VERSION OF PYTHON IS NOT SUPPORTED
+.../node_modules/registry-js install: gyp ERR! find Python - "C:\Program Files\Python311\python.exe" could not be run
+.../node_modules/registry-js install: gyp ERR! find Python checking if Python is C:\Users\sun\AppData\Local\Programs\Python\Python311-32\python.exe
+.../node_modules/registry-js install: gyp ERR! find Python - version is ""
+.../node_modules/registry-js install: gyp ERR! find Python - version is  - should be >=3.6.0
+.../node_modules/registry-js install: gyp ERR! find Python - THIS VERSION OF PYTHON IS NOT SUPPORTED
+.../node_modules/registry-js install: gyp ERR! find Python - "C:\Users\sun\AppData\Local\Programs\Python\Python311-32\python.exe" could not be run
+.../node_modules/registry-js install: gyp ERR! find Python checking if Python is C:\Program Files\Python311-32\python.exe
+.../node_modules/registry-js install: gyp ERR! find Python - version is ""
+.../node_modules/registry-js install: gyp ERR! find Python - version is  - should be >=3.6.0
+.../node_modules/registry-js install: gyp ERR! find Python - THIS VERSION OF PYTHON IS NOT SUPPORTED
+.../node_modules/registry-js install: gyp ERR! find Python - "C:\Program Files\Python311-32\python.exe" could not be run
+.../node_modules/registry-js install: gyp ERR! find Python checking if Python is C:\Program Files (x86)\Python311-32\python.exe
+.../node_modules/registry-js install: gyp ERR! find Python - version is ""
+.../node_modules/registry-js install: gyp ERR! find Python - version is  - should be >=3.6.0
+.../node_modules/registry-js install: gyp ERR! find Python - THIS VERSION OF PYTHON IS NOT SUPPORTED
+.../node_modules/registry-js install: gyp ERR! find Python - "C:\Program Files (x86)\Python311-32\python.exe" could not be run
+.../node_modules/registry-js install: gyp ERR! find Python checking if Python is C:\Users\sun\AppData\Local\Programs\Python\Python310\python.exe
+.../node_modules/registry-js install: gyp ERR! find Python - version is ""
+.../node_modules/registry-js install: gyp ERR! find Python - version is  - should be >=3.6.0
+.../node_modules/registry-js install: gyp ERR! find Python - THIS VERSION OF PYTHON IS NOT SUPPORTED
+.../node_modules/registry-js install: gyp ERR! find Python - "C:\Users\sun\AppData\Local\Programs\Python\Python310\python.exe" could not be run
+.../node_modules/registry-js install: gyp ERR! find Python checking if Python is C:\Program Files\Python310\python.exe
+.../node_modules/registry-js install: gyp ERR! find Python - version is ""
+.../node_modules/registry-js install: gyp ERR! find Python - version is  - should be >=3.6.0
+.../node_modules/registry-js install: gyp ERR! find Python - THIS VERSION OF PYTHON IS NOT SUPPORTED
+.../node_modules/registry-js install: gyp ERR! find Python - "C:\Program Files\Python310\python.exe" could not be run
+.../node_modules/registry-js install: gyp ERR! find Python checking if Python is C:\Users\sun\AppData\Local\Programs\Python\Python310-32\python.exe
+.../node_modules/registry-js install: gyp ERR! find Python - version is ""
+.../node_modules/registry-js install: gyp ERR! find Python - version is  - should be >=3.6.0
+.../node_modules/registry-js install: gyp ERR! find Python - THIS VERSION OF PYTHON IS NOT SUPPORTED
+.../node_modules/registry-js install: gyp ERR! find Python - "C:\Users\sun\AppData\Local\Programs\Python\Python310-32\python.exe" could not be run
+.../node_modules/registry-js install: gyp ERR! find Python checking if Python is C:\Program Files\Python310-32\python.exe
+.../node_modules/registry-js install: gyp ERR! find Python - version is ""
+.../node_modules/registry-js install: gyp ERR! find Python - version is  - should be >=3.6.0
+.../node_modules/registry-js install: gyp ERR! find Python - THIS VERSION OF PYTHON IS NOT SUPPORTED
+.../node_modules/registry-js install: gyp ERR! find Python - "C:\Program Files\Python310-32\python.exe" could not be run
+.../node_modules/registry-js install: gyp ERR! find Python checking if Python is C:\Program Files (x86)\Python310-32\python.exe
+.../node_modules/registry-js install: gyp ERR! find Python - version is ""
+.../node_modules/registry-js install: gyp ERR! find Python - version is  - should be >=3.6.0
+.../node_modules/registry-js install: gyp ERR! find Python - THIS VERSION OF PYTHON IS NOT SUPPORTED
+.../node_modules/registry-js install: gyp ERR! find Python - "C:\Program Files (x86)\Python310-32\python.exe" could not be run
+.../node_modules/registry-js install: gyp ERR! find Python checking if Python is C:\Users\sun\AppData\Local\Programs\Python\Python39\python.exe
+.../node_modules/registry-js install: gyp ERR! find Python - version is ""
+.../node_modules/registry-js install: gyp ERR! find Python - version is  - should be >=3.6.0
+.../node_modules/registry-js install: gyp ERR! find Python - THIS VERSION OF PYTHON IS NOT SUPPORTED
+.../node_modules/registry-js install: gyp ERR! find Python - "C:\Users\sun\AppData\Local\Programs\Python\Python39\python.exe" could not be run
+.../node_modules/registry-js install: gyp ERR! find Python checking if Python is C:\Program Files\Python39\python.exe
+.../node_modules/registry-js install: gyp ERR! find Python - version is ""
+.../node_modules/registry-js install: gyp ERR! find Python - version is  - should be >=3.6.0
+.../node_modules/registry-js install: gyp ERR! find Python - THIS VERSION OF PYTHON IS NOT SUPPORTED
+.../node_modules/registry-js install: gyp ERR! find Python - "C:\Program Files\Python39\python.exe" could not be run
+.../node_modules/registry-js install: gyp ERR! find Python checking if Python is C:\Users\sun\AppData\Local\Programs\Python\Python39-32\python.exe
+.../node_modules/registry-js install: gyp ERR! find Python - version is ""
+.../node_modules/registry-js install: gyp ERR! find Python - version is  - should be >=3.6.0
+.../node_modules/registry-js install: gyp ERR! find Python - THIS VERSION OF PYTHON IS NOT SUPPORTED
+.../node_modules/registry-js install: gyp ERR! find Python - "C:\Users\sun\AppData\Local\Programs\Python\Python39-32\python.exe" could not be run
+.../node_modules/registry-js install: gyp ERR! find Python checking if Python is C:\Program Files\Python39-32\python.exe
+.../node_modules/registry-js install: gyp ERR! find Python - version is ""
+.../node_modules/registry-js install: gyp ERR! find Python - version is  - should be >=3.6.0
+.../node_modules/registry-js install: gyp ERR! find Python - THIS VERSION OF PYTHON IS NOT SUPPORTED
+.../node_modules/registry-js install: gyp ERR! find Python - "C:\Program Files\Python39-32\python.exe" could not be run
+.../node_modules/registry-js install: gyp ERR! find Python checking if Python is C:\Program Files (x86)\Python39-32\python.exe
+.../node_modules/registry-js install: gyp ERR! find Python - version is ""
+.../node_modules/registry-js install: gyp ERR! find Python - version is  - should be >=3.6.0
+.../node_modules/registry-js install: gyp ERR! find Python - THIS VERSION OF PYTHON IS NOT SUPPORTED
+.../node_modules/registry-js install: gyp ERR! find Python - "C:\Program Files (x86)\Python39-32\python.exe" could not be run
+.../node_modules/registry-js install: gyp ERR! find Python checking if Python is C:\Users\sun\AppData\Local\Programs\Python\Python38\python.exe
+.../node_modules/registry-js install: gyp ERR! find Python - version is ""
+.../node_modules/registry-js install: gyp ERR! find Python - version is  - should be >=3.6.0
+.../node_modules/registry-js install: gyp ERR! find Python - THIS VERSION OF PYTHON IS NOT SUPPORTED
+.../node_modules/registry-js install: gyp ERR! find Python - "C:\Users\sun\AppData\Local\Programs\Python\Python38\python.exe" could not be run
+.../node_modules/registry-js install: gyp ERR! find Python checking if Python is C:\Program Files\Python38\python.exe
+.../node_modules/registry-js install: gyp ERR! find Python - version is ""
+.../node_modules/registry-js install: gyp ERR! find Python - version is  - should be >=3.6.0
+.../node_modules/registry-js install: gyp ERR! find Python - THIS VERSION OF PYTHON IS NOT SUPPORTED
+.../node_modules/registry-js install: gyp ERR! find Python - "C:\Program Files\Python38\python.exe" could not be run
+.../node_modules/registry-js install: gyp ERR! find Python checking if Python is C:\Users\sun\AppData\Local\Programs\Python\Python38-32\python.exe
+.../node_modules/registry-js install: gyp ERR! find Python - version is ""
+.../node_modules/registry-js install: gyp ERR! find Python - version is  - should be >=3.6.0
+.../node_modules/registry-js install: gyp ERR! find Python - THIS VERSION OF PYTHON IS NOT SUPPORTED
+.../node_modules/registry-js install: gyp ERR! find Python - "C:\Users\sun\AppData\Local\Programs\Python\Python38-32\python.exe" could not be run
+.../node_modules/registry-js install: gyp ERR! find Python checking if Python is C:\Program Files\Python38-32\python.exe
+.../node_modules/registry-js install: gyp ERR! find Python - version is ""
+.../node_modules/registry-js install: gyp ERR! find Python - version is  - should be >=3.6.0
+.../node_modules/registry-js install: gyp ERR! find Python - THIS VERSION OF PYTHON IS NOT SUPPORTED
+.../node_modules/registry-js install: gyp ERR! find Python - "C:\Program Files\Python38-32\python.exe" could not be run
+.../node_modules/registry-js install: gyp ERR! find Python checking if Python is C:\Program Files (x86)\Python38-32\python.exe
+.../node_modules/registry-js install: gyp ERR! find Python - version is ""
+.../node_modules/registry-js install: gyp ERR! find Python - version is  - should be >=3.6.0
+.../node_modules/registry-js install: gyp ERR! find Python - THIS VERSION OF PYTHON IS NOT SUPPORTED
+.../node_modules/registry-js install: gyp ERR! find Python - "C:\Program Files (x86)\Python38-32\python.exe" could not be run
+.../node_modules/registry-js install: gyp ERR! find Python 
+.../node_modules/registry-js install: gyp ERR! find Python **********************************************************
+.../node_modules/registry-js install: gyp ERR! find Python You need to install the latest version of Python.
+.../node_modules/registry-js install: gyp ERR! find Python Node-gyp should be able to find and use Python. If not,
+.../node_modules/registry-js install: gyp ERR! find Python you can try one of the following options:
+.../node_modules/registry-js install: gyp ERR! find Python - Use the switch --python="C:\Path\To\python.exe"
+.../node_modules/registry-js install: gyp ERR! find Python (accepted by both node-gyp and npm)
+.../node_modules/registry-js install: gyp ERR! find Python - Set the environment variable PYTHON
+.../node_modules/registry-js install: gyp ERR! find Python - Set the npm configuration variable python:
+.../node_modules/registry-js install: gyp ERR! find Python npm config set python "C:\Path\To\python.exe"
+.../node_modules/registry-js install: gyp ERR! find Python For more information consult the documentation at:
+.../node_modules/registry-js install: gyp ERR! find Python https://github.com/nodejs/node-gyp#installation
+.../node_modules/registry-js install: gyp ERR! find Python **********************************************************
+.../node_modules/registry-js install: gyp ERR! find Python 
+.../node_modules/registry-js install: gyp ERR! configure error 
+.../node_modules/registry-js install: gyp ERR! stack Error: Could not find any Python installation to use
+.../node_modules/registry-js install: gyp ERR! stack at PythonFinder.fail (D:\.pnpm-store\v11\links\@\pnpm\10.27.0\1a120c049688e12cd6aba74b0e72d92e185dfcdad4f9d1ba4149728e22fce575\node_modules\pnpm\dist\node_modules\node-gyp\lib\find-python.js:306:11)
+.../node_modules/registry-js install: gyp ERR! stack at PythonFinder.findPython (D:\.pnpm-store\v11\links\@\pnpm\10.27.0\1a120c049688e12cd6aba74b0e72d92e185dfcdad4f9d1ba4149728e22fce575\node_modules\pnpm\dist\node_modules\node-gyp\lib\find-python.js:164:17)
+.../node_modules/registry-js install: gyp ERR! stack at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+.../node_modules/registry-js install: gyp ERR! stack at async configure (D:\.pnpm-store\v11\links\@\pnpm\10.27.0\1a120c049688e12cd6aba74b0e72d92e185dfcdad4f9d1ba4149728e22fce575\node_modules\pnpm\dist\node_modules\node-gyp\lib\configure.js:27:18)
+.../node_modules/registry-js install: gyp ERR! stack at async run (D:\.pnpm-store\v11\links\@\pnpm\10.27.0\1a120c049688e12cd6aba74b0e72d92e185dfcdad4f9d1ba4149728e22fce575\node_modules\pnpm\dist\node_modules\node-gyp\bin\node-gyp.js:81:18)
+.../node_modules/registry-js install: gyp ERR! System Windows_NT 10.0.19045
+.../node_modules/registry-js install: gyp ERR! command "C:\\Program Files\\nodejs\\node.exe" "D:\\.pnpm-store\\v11\\links\\@\\pnpm\\10.27.0\\1a120c049688e12cd6aba74b0e72d92e185dfcdad4f9d1ba4149728e22fce575\\node_modules\\pnpm\\dist\\node_modules\\node-gyp\\bin\\node-gyp.js" "rebuild"
+.../node_modules/registry-js install: gyp ERR! cwd D:\codex\小豆万象\CherryHQ-cherry-studio\cherry-studio-1.9.9\node_modules\.pnpm\registry-js@1.16.1\node_modules\registry-js
+.../node_modules/registry-js install: gyp ERR! node -v v24.14.1
+.../node_modules/registry-js install: gyp ERR! node-gyp -v v11.5.0
+.../node_modules/registry-js install: gyp ERR! not ok 
+.../node_modules/registry-js install: Failed
+.../@paymoapp/electron-shutdown-handler install: gyp info it worked if it ends with ok
+.../@paymoapp/electron-shutdown-handler install: gyp info using node-gyp@11.5.0
+.../@paymoapp/electron-shutdown-handler install: gyp info using node@24.14.1 | win32 | x64
+ ELIFECYCLE  Command failed with exit code 1.
+.../@paymoapp/electron-shutdown-handler install: (node:16424) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+.../@paymoapp/electron-shutdown-handler install: (Use `node --trace-deprecation ...` to show where the warning was created)
+.../@paymoapp/electron-shutdown-handler install: (node:16424) [DEP0190] DeprecationWarning: Passing args to a child process with shell option true can lead to security vulnerabilities, as the arguments are not escaped, only concatenated.

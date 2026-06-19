@@ -1,0 +1,106 @@
+﻿import { Navbar, NavbarCenter, NavbarLeft, NavbarRight } from '@renderer/components/app/Navbar'
+import SearchPopup from '@renderer/components/Popups/SearchPopup'
+import { useShortcut } from '@renderer/hooks/useShortcuts'
+import { useShowAssistants } from '@renderer/hooks/useStore'
+import type { Assistant, Topic } from '@renderer/types'
+import { Tooltip } from 'antd'
+import { t } from 'i18next'
+import { Menu, PanelLeftClose, PanelRightClose, Search } from 'lucide-react'
+import { AnimatePresence, motion } from 'motion/react'
+import type { FC } from 'react'
+
+import NavbarIcon from '../../components/NavbarIcon'
+import AssistantsDrawer from './components/AssistantsDrawer'
+
+interface Props {
+  activeAssistant: Assistant
+  activeTopic: Topic
+  setActiveTopic: (topic: Topic) => void
+  setActiveAssistant: (assistant: Assistant) => void
+  position: 'left' | 'right'
+}
+
+const HeaderNavbar: FC<Props> = ({ activeAssistant, setActiveAssistant, activeTopic, setActiveTopic }) => {
+  const { showAssistants, toggleShowAssistants } = useShowAssistants()
+
+  useShortcut('search_message', () => {
+    void SearchPopup.show()
+  })
+
+  const onShowAssistantsDrawer = () => {
+    void AssistantsDrawer.show({
+      activeAssistant,
+      setActiveAssistant,
+      activeTopic,
+      setActiveTopic
+    })
+  }
+
+  return (
+    <Navbar className="home-navbar">
+      <AnimatePresence initial={false}>
+        {showAssistants && (
+          <motion.div
+            initial={{ width: 0, opacity: 0 }}
+            animate={{ width: 'auto', opacity: 1 }}
+            exit={{ width: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            style={{ overflow: 'hidden', display: 'flex', flexDirection: 'row' }}>
+            <NavbarLeft style={{ justifyContent: 'space-between', borderRight: 'none', padding: 0 }}>
+              <Tooltip title={t('navbar.hide_sidebar')} mouseEnterDelay={0.8}>
+                <NavbarIcon onClick={toggleShowAssistants}>
+                  <PanelLeftClose size={18} />
+                </NavbarIcon>
+              </Tooltip>
+            </NavbarLeft>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      {!showAssistants && (
+        <NavbarLeft
+          style={{
+            justifyContent: 'flex-start',
+            borderRight: 'none',
+            paddingLeft: 0,
+            paddingRight: 0,
+            minWidth: 'auto'
+          }}>
+          <Tooltip title={t('navbar.show_sidebar')} mouseEnterDelay={0.8} placement="right">
+            <NavbarIcon onClick={() => toggleShowAssistants()}>
+              <PanelRightClose size={18} />
+            </NavbarIcon>
+          </Tooltip>
+          <AnimatePresence initial={false}>
+            <motion.div
+              initial={{ width: 0, opacity: 0 }}
+              animate={{ width: 'auto', opacity: 1 }}
+              exit={{ width: 0, opacity: 0 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+              style={{ overflow: 'hidden' }}>
+              <NavbarIcon onClick={onShowAssistantsDrawer} style={{ marginLeft: 8 }}>
+                <Menu size={18} />
+              </NavbarIcon>
+            </motion.div>
+          </AnimatePresence>
+        </NavbarLeft>
+      )}
+      <NavbarCenter></NavbarCenter>
+      <NavbarRight
+        style={{
+          justifyContent: 'flex-end',
+          flex: 1,
+          position: 'relative',
+          paddingRight: '15px'
+        }}
+        className="home-navbar-right">
+        <Tooltip title={t('chat.assistant.search.placeholder')} mouseEnterDelay={0.8}>
+          <NavbarIcon onClick={() => SearchPopup.show()}>
+            <Search size={18} />
+          </NavbarIcon>
+        </Tooltip>
+      </NavbarRight>
+    </Navbar>
+  )
+}
+
+export default HeaderNavbar
