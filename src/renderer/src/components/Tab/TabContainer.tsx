@@ -14,7 +14,7 @@ import { addTab, removeTab, setActiveTab } from '@renderer/store/tabs'
 import { ThemeMode } from '@renderer/types'
 import type { MinAppType } from '@renderer/types'
 import type { LRUCache } from 'lru-cache'
-import { Tooltip } from 'antd'
+import { Modal, Tooltip } from 'antd'
 import {
   Home,
   LayoutGrid,
@@ -22,11 +22,12 @@ import {
   Moon,
   MousePointerClick,
   Settings,
+  Info,
   Sparkle,
   Sun,
   X
 } from 'lucide-react'
-import { useCallback, useEffect, useMemo } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useLocation, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
@@ -93,6 +94,7 @@ const TabsContainer: React.FC<TabsContainerProps> = ({ children }) => {
   const { useSystemTitleBar } = useSettings()
   const { t } = useTranslation()
   const { settedTheme, toggleTheme } = useTheme()
+  const [aboutOpen, setAboutOpen] = useState(false)
 
   const getTabId = (path: string): string => {
     if (path === '/') return 'home'
@@ -213,6 +215,104 @@ const TabsContainer: React.FC<TabsContainerProps> = ({ children }) => {
           })}
         </HorizontalScrollContainer>
         <RightButtonsContainer style={{ paddingRight: isLinux && useSystemTitleBar ? '12px' : undefined }}>
+          <Tooltip title={'关于'} mouseEnterDelay={0.8}>
+            <AboutBtn onClick={() => setAboutOpen(true)}>
+              <Info size={16} />
+            </AboutBtn>
+          </Tooltip>
+          <Modal
+            title={null}
+            open={aboutOpen}
+            onCancel={() => setAboutOpen(false)}
+            onOk={() => setAboutOpen(false)}
+            destroyOnClose
+            footer={null}
+            width={520}
+            centered
+            styles={{ body: { padding: '24px 28px' } }}>
+            <AboutContent>
+              <AboutHeader>
+                <AboutTitle>小豆智能体</AboutTitle>
+                <AboutVersion>v1.1.9</AboutVersion>
+              </AboutHeader>
+              <AboutDesc>基于 Cherry Studio Community Edition 的二次开发定制版</AboutDesc>
+              <AboutDesc style={{ fontSize: 12, color: 'var(--color-text-3)' }}>面向 AI 漫剧/短剧生产场景</AboutDesc>
+
+              <AboutDivider />
+
+              <AboutSection>
+                <AboutSectionTitle>开源信息</AboutSectionTitle>
+                <AboutRow>
+                  <AboutLabel>许可证</AboutLabel>
+                  <AboutValue>GNU AGPL-3.0</AboutValue>
+                </AboutRow>
+                <AboutRow>
+                  <AboutLabel>版权归属</AboutLabel>
+                  <AboutValue>Copyright (c) 2025 小豆万象</AboutValue>
+                </AboutRow>
+                <AboutRow>
+                  <AboutLabel>源码仓库</AboutLabel>
+                  <AboutLink href="https://github.com/SummerPomelo/xiaodou-zhinengti" target="_blank">
+                    github.com/SummerPomelo/xiaodou-zhinengti
+                  </AboutLink>
+                </AboutRow>
+              </AboutSection>
+
+              <AboutDivider />
+
+              <AboutSection>
+                <AboutSectionTitle>上游归属</AboutSectionTitle>
+                <AboutRow>
+                  <AboutLabel>上游项目</AboutLabel>
+                  <AboutValue>Cherry Studio v1.9.9</AboutValue>
+                </AboutRow>
+                <AboutRow>
+                  <AboutLabel>上游仓库</AboutLabel>
+                  <AboutLink href="https://github.com/CherryHQ/cherry-studio" target="_blank">
+                    github.com/CherryHQ/cherry-studio
+                  </AboutLink>
+                </AboutRow>
+                <AboutRow>
+                  <AboutLabel>上游许可证</AboutLabel>
+                  <AboutValue>AGPL-3.0</AboutValue>
+                </AboutRow>
+                <AboutRow>
+                  <AboutLabel>上游版权</AboutLabel>
+                  <AboutValue>Copyright (c) CherryHQ</AboutValue>
+                </AboutRow>
+              </AboutSection>
+
+              <AboutDivider />
+
+              <AboutSection>
+                <AboutSectionTitle>修改说明</AboutSectionTitle>
+                <AboutDesc>基于 Cherry Studio v1.9.9 进行二次开发，主要修改包括：</AboutDesc>
+                <AboutDesc>- 精简为顶层导航栏布局（会话 / 助手库 / 设置）</AboutDesc>
+                <AboutDesc>- 定制设置页面仅保留服务商管理</AboutDesc>
+                <AboutDesc>- 添加系统托盘集成与自定义品牌标识</AboutDesc>
+                <AboutDesc>- 集成开源声明与上游归属信息</AboutDesc>
+              </AboutSection>
+
+              <AboutDivider />
+
+              <AboutSection>
+                <AboutSectionTitle>许可证条款</AboutSectionTitle>
+                <AboutDesc>本软件依据 GNU Affero General Public License v3.0 (AGPL-3.0) 发布。</AboutDesc>
+                <AboutDesc>您有权获取、使用、修改和分发本软件源代码。衍生作品须同样采用 AGPL-3.0 许可证。</AboutDesc>
+                <AboutDesc>
+                  完整许可证文本请访问：
+                  <AboutLink href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank">
+                    www.gnu.org/licenses/agpl-3.0.html
+                  </AboutLink>
+                </AboutDesc>
+              </AboutSection>
+
+              <AboutDivider />
+
+              <AboutFooter>本软件按现状提供，不作任何明示或暗示担保。</AboutFooter>
+            </AboutContent>
+          </Modal>
+
           <Tooltip title={t('settings.theme.title') + ': ' + getThemeModeLabel(settedTheme)} mouseEnterDelay={0.8}>
             <ThemeButton onClick={toggleTheme}>
               {settedTheme === ThemeMode.dark ? (
@@ -339,7 +439,104 @@ const RightButtonsContainer = styled.div`
   flex-shrink: 0;
 `
 
+const AboutContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+`
+
+const AboutHeader = styled.div`
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 4px;
+`
+
+const AboutTitle = styled.div`
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-text);
+`
+
+const AboutVersion = styled.div`
+  font-size: 13px;
+  color: var(--color-text-3);
+  padding: 2px 8px;
+  background: var(--color-list-item);
+  border-radius: 4px;
+`
+
+const AboutDesc = styled.div`
+  font-size: 13px;
+  color: var(--color-text-2);
+  line-height: 1.6;
+`
+
+const AboutDivider = styled.div`
+  height: 1px;
+  background: var(--color-border);
+  margin: 14px 0;
+`
+
+const AboutSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+`
+
+const AboutSectionTitle = styled.div`
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 2px;
+`
+
+const AboutRow = styled.div`
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+`
+
+const AboutLabel = styled.div`
+  color: var(--color-text-3);
+  width: 80px;
+  flex-shrink: 0;
+`
+
+const AboutValue = styled.div`
+  color: var(--color-text);
+`
+
+const AboutLink = styled.a`
+  color: var(--color-primary);
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+`
+
+const AboutFooter = styled.div`
+  font-size: 12px;
+  color: var(--color-text-3);
+  text-align: center;
+  padding-top: 4px;
+`
+
 const ThemeButton = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  color: var(--color-text);
+  border-radius: 8px;
+  &:hover {
+    background: var(--color-list-item);
+  }
+`
+
+const AboutBtn = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;

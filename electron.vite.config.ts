@@ -120,3 +120,4 @@ export default defineConfig({
     esbuild: isProd ? { legalComments: 'none' } : {}
   }
 })
+

@@ -1,4 +1,4 @@
-﻿appId: com.xiaodou.wanxiang
+appId: com.xiaodou.wanxiang
 productName: 小豆智能体
 electronLanguages:
   - zh-CN
@@ -17,6 +17,7 @@ protocols:
   - name: 小豆智能体
     schemes:
       - xiaodouwanxiang
+asar: false
 files:
   - "**/*"
   - "!**/{.vscode,.yarn,.yarn-lock,.github,.cursorrules,.prettierrc}"
@@ -147,3 +148,4 @@ releaseInfo:
     ✨ 新功能
     - 新增“关于”弹窗并展示开源声明/上游归属信息。
     <!--LANG:END-->
+

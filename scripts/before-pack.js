@@ -58,12 +58,8 @@ exports.default = async function (context) {
   const platform = platformToArch[platformName]
 
   // Download rtk binary for the target platform
-  try {
-    console.log(`Downloading rtk binary for ${platform}-${arch}...`)
-    execSync(`node "${path.join(__dirname, 'download-rtk-binaries.js')}" ${platform} ${arch}`, { stdio: 'inherit' })
-  } catch (error) {
-    console.warn(`Warning: rtk binary download failed (non-fatal): ${error.message}`)
-  }
+  // SKIP_RTK_DOWNLOAD: temporarily disabled for local offline build
+  console.log(`Skipping rtk binary download for ${platform}-${arch} (disabled for local build)`)
 
   const downloadPackages = async () => {
     // Skip if target platform and architecture match current system
