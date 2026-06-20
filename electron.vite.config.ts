@@ -4,14 +4,8 @@ import { defineConfig } from 'electron-vite'
 import { resolve } from 'path'
 import { visualizer } from 'rollup-plugin-visualizer'
 
-// assert not supported by biome
-// import pkg from './package.json' assert { type: 'json' }
 import pkg from './package.json'
 import { buildProxyBootstrapPlugin } from './scripts/buildProxyBootstrapPlugin'
-
-const visualizerPlugin = (type: 'renderer' | 'main') => {
-  return process.env[VISUALIZER_] ? [visualizer({ open: true })] : []
-}
 
 const isDev = process.env.NODE_ENV === 'development'
 const isProd = process.env.NODE_ENV === 'production'
@@ -19,7 +13,6 @@ const isProd = process.env.NODE_ENV === 'production'
 export default defineConfig({
   main: {
     plugins: [
-      ...visualizerPlugin('main'),
       buildProxyBootstrapPlugin({
         dependencies: Object.keys(pkg.dependencies),
         isProd,
@@ -77,8 +70,7 @@ export default defineConfig({
       react({
         tsDecorators: true
       }),
-      ...(isDev ? [CodeInspectorPlugin({ bundler: 'vite' })] : []),
-      ...visualizerPlugin('renderer')
+      ...(isDev ? [CodeInspectorPlugin({ bundler: 'vite' })] : [])
     ],
     css: {
       postcss: {}
