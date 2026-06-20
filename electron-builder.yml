@@ -23,7 +23,7 @@ files:
   - "!electron.vite.config.{js,ts,mjs,cjs}}"
   - "!.*"
   - "!components.json"
-  - "!**/{.eslintignore,.eslintrc.js,.eslintrc.json,.eslintcache,root.eslint.config.js,eslint.config.js,.eslintrc.cjs,.prettierignore,.prettierrc.yaml,eslint.config.mjs,dev-app-update.yml,CHANGELOG.md,README.md,biome.jsonc}"
+  - "!**/{.eslintignore,.eslintrc.js,.eslintrc.json,.eslintcache,root.eslint.config.js,eslint.config.js,.eslintrc.cjs,.prettierignore,.prettierrc.yaml,eslint.config.mjs,dev-app-update.yml,CHANGELOG.md,biome.jsonc}"
   - "!**/{.env,.env.*,.npmrc,pnpm-lock.yaml}"
   - "!**/{tsconfig.json,tsconfig.tsbuildinfo,tsconfig.node.json,tsconfig.web.json}"
   - "!**/{.editorconfig,.jekyll-metadata}"
@@ -43,7 +43,6 @@ files:
   - "!._*"
   - "!*.log"
   - "!stats.html"
-  - "!*.md"
   - "!**/*.{iml,o,hprof,orig,pyc,pyo,rbc,swp,csproj,sln,xproj}"
   - "!**/*.{map,ts,tsx,jsx,less,scss,sass,css.d.ts,d.cts,d.mts,md,markdown,yaml,yml}"
   - "!**/{test,tests,__tests__,powered-test,coverage}/**"
@@ -55,20 +54,20 @@ files:
   - "!**/dist/demo/**"
   - "!**/amd/**"
   - "!**/{.DS_Store,Thumbs.db,thumbs.db,__pycache__}"
-  - "!**/{LICENSE,license,LICENSE.*,*.LICENSE.txt,NOTICE.txt,README.md,readme.md,CHANGELOG.md}"
+  - "!**/{LICENSE,license,LICENSE.*,*.LICENSE.txt,NOTICE.txt,readme.md,CHANGELOG.md}"
   - "!node_modules/rollup-plugin-visualizer"
   - "!node_modules/js-tiktoken"
   - "!node_modules/@tavily/core/node_modules/js-tiktoken"
   - "!node_modules/pdf-parse/lib/pdf.js/{v1.9.426,v1.10.88,v2.0.550}"
   - "!node_modules/mammoth/{mammoth.browser.js,mammoth.browser.min.js}"
-  - "!node_modules/selection-hook/prebuilds/**/*" # we rebuild .node, don't use prebuilds
-  - "!node_modules/selection-hook/node_modules" # we don't need what in the node_modules dir
-  - "!node_modules/selection-hook/src" # we don't need source files
-  - "!node_modules/tesseract.js-core/{tesseract-core.js,tesseract-core.wasm,tesseract-core.wasm.js}" # we don't need source files
-  - "!node_modules/tesseract.js-core/{tesseract-core-lstm.js,tesseract-core-lstm.wasm,tesseract-core-lstm.wasm.js}" # we don't need source files
-  - "!node_modules/tesseract.js-core/{tesseract-core-simd-lstm.js,tesseract-core-simd-lstm.wasm,tesseract-core-simd-lstm.wasm.js}" # we don't need source files
-  - "!**/*.{h,iobj,ipdb,tlog,recipe,vcxproj,vcxproj.filters,Makefile,*.Makefile}" # filter .node build files
-  - "resources/**/*" # include all files in resources, and unpack them from asar for runtime access
+  - "!node_modules/selection-hook/prebuilds/**/*"
+  - "!node_modules/selection-hook/node_modules"
+  - "!node_modules/selection-hook/src"
+  - "!node_modules/tesseract.js-core/{tesseract-core.js,tesseract-core.wasm,tesseract-core.wasm.js}"
+  - "!node_modules/tesseract.js-core/{tesseract-core-lstm.js,tesseract-core-lstm.wasm,tesseract-core-lstm.wasm.js}"
+  - "!node_modules/tesseract.js-core/{tesseract-core-simd-lstm.js,tesseract-core-simd-lstm.wasm,tesseract-core-simd-lstm.wasm.js}"
+  - "!**/*.{h,iobj,ipdb,tlog,recipe,vcxproj,vcxproj.filters,Makefile,*.Makefile}"
+  - "resources/**/*"
 asarUnpack:
   - out/proxy/**
   - resources/**
@@ -81,8 +80,6 @@ win:
   target:
     - target: nsis
     - target: portable
-  # signtoolOptions:
-  #   sign: scripts/win-sign.js
   verifyUpdateCodeSignature: false
 nsis:
   artifactName: ${productName}-${version}-${arch}-setup.${ext}
@@ -127,8 +124,6 @@ linux:
   mimeTypes:
     - x-scheme-handler/xiaodouwanxiang
 rpm:
-  # Workaround for electron build issue on rpm package:
-  # https://github.com/electron/forge/issues/3594
   fpm: ["--rpm-rpmbuild-define=_build_id_links none"]
 publish:
   provider: generic
@@ -137,29 +132,18 @@ electronDownload:
   mirror: https://npmmirror.com/mirrors/electron/
 beforePack: scripts/before-pack.js
 afterPack: scripts/after-pack.js
-# afterSign: scripts/notarize.js
 artifactBuildCompleted: scripts/artifact-build-completed.js
 releaseInfo:
   releaseNotes: |
     <!--LANG:en-->
-    小豆智能体 1.0.0 - AI漫剧/短剧制作工具
+    小豆智能体 1.1.9 - AI漫剧/短剧制作工具
 
     ✨ New Features
-    - [Models] Added MiniMax M3 to the built-in model list.
-
-    🐛 Bug Fixes
-    - [Mini Apps] Fixed an app crash that could occur when launching mini apps.
-    - [OCR] Fixed a Windows startup crash that could occur while detecting Intel OV OCR availability.
-    - [Agent] Fixed agent sessions automatically renaming after topic auto-renaming is disabled.
+    - Added About dialog with OSS attribution.
 
     <!--LANG:zh-CN-->
-    小豆智能体 1.0.0 - AI漫剧/短剧制作工具
+    小豆智能体 1.1.9 - AI漫剧/短剧制作工具
 
     ✨ 新功能
-    - [模型] 内置模型列表新增 MiniMax M3。
-
-    🐛 问题修复
-    - [小程序] 修复启动小程序时可能导致应用崩溃的问题。
-    - [OCR] 修复 Windows 启动时检测 Intel OV OCR 可用性可能导致崩溃的问题。
-    - [智能体] 修复关闭话题自动命名后，智能体会话仍会自动重命名的问题。
+    - 新增“关于”弹窗并展示开源声明/上游归属信息。
     <!--LANG:END-->
