@@ -1,14 +1,16 @@
 ﻿import react from '@vitejs/plugin-react-swc'
 import { CodeInspectorPlugin } from 'code-inspector-plugin'
 import { defineConfig } from 'electron-vite'
-import { resolve } from 'path'
-import { visualizer } from 'rollup-plugin-visualizer'
+import path from 'path'
+import { readFileSync } from 'fs'
+import { fileURLToPath } from 'url'
 
-import pkg from './package.json'
+const pkg = JSON.parse(readFileSync(new URL('./package.json', import.meta.url), 'utf-8'))
 import { buildProxyBootstrapPlugin } from './scripts/buildProxyBootstrapPlugin'
 
 const isDev = process.env.NODE_ENV === 'development'
 const isProd = process.env.NODE_ENV === 'production'
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
   main: {
@@ -21,12 +23,12 @@ export default defineConfig({
     ],
     resolve: {
       alias: {
-        '@main': resolve('src/main'),
-        '@types': resolve('src/renderer/src/types'),
-        '@shared': resolve('packages/shared'),
-        '@logger': resolve('src/main/services/LoggerService'),
-        '@mcp-trace/trace-core': resolve('packages/mcp-trace/trace-core'),
-        '@mcp-trace/trace-node': resolve('packages/mcp-trace/trace-node')
+        '@main': path.resolve('src/main'),
+        '@types': path.resolve('src/renderer/src/types'),
+        '@shared': path.resolve('packages/shared'),
+        '@logger': path.resolve('src/main/services/LoggerService'),
+        '@mcp-trace/trace-core': path.resolve('packages/mcp-trace/trace-core'),
+        '@mcp-trace/trace-node': path.resolve('packages/mcp-trace/trace-node')
       }
     },
     build: {
@@ -56,8 +58,8 @@ export default defineConfig({
     ],
     resolve: {
       alias: {
-        '@shared': resolve('packages/shared'),
-        '@mcp-trace/trace-core': resolve('packages/mcp-trace/trace-core')
+        '@shared': path.resolve('packages/shared'),
+        '@mcp-trace/trace-core': path.resolve('packages/mcp-trace/trace-core')
       }
     },
     build: {
@@ -77,17 +79,17 @@ export default defineConfig({
     },
     resolve: {
       alias: {
-        '@renderer': resolve('src/renderer/src'),
-        '@shared': resolve('packages/shared'),
-        '@types': resolve('src/renderer/src/types'),
-        '@logger': resolve('src/renderer/src/services/LoggerService'),
-        '@mcp-trace/trace-core': resolve('packages/mcp-trace/trace-core'),
-        '@mcp-trace/trace-web': resolve('packages/mcp-trace/trace-web'),
-        '@cherrystudio/ai-core/provider': resolve('packages/aiCore/src/core/providers'),
-        '@cherrystudio/ai-core/built-in/plugins': resolve('packages/aiCore/src/core/plugins/built-in'),
-        '@cherrystudio/ai-core': resolve('packages/aiCore/src'),
-        '@cherrystudio/extension-table-plus': resolve('packages/extension-table-plus/src'),
-        '@cherrystudio/ai-sdk-provider': resolve('packages/ai-sdk-provider/src')
+        '@renderer': path.resolve('src/renderer/src'),
+        '@shared': path.resolve('packages/shared'),
+        '@types': path.resolve('src/renderer/src/types'),
+        '@logger': path.resolve('src/renderer/src/services/LoggerService'),
+        '@mcp-trace/trace-core': path.resolve('packages/mcp-trace/trace-core'),
+        '@mcp-trace/trace-web': path.resolve('packages/mcp-trace/trace-web'),
+        '@cherrystudio/ai-core/provider': path.resolve('packages/aiCore/src/core/providers'),
+        '@cherrystudio/ai-core/built-in/plugins': path.resolve('packages/aiCore/src/core/plugins/built-in'),
+        '@cherrystudio/ai-core': path.resolve('packages/aiCore/src'),
+        '@cherrystudio/extension-table-plus': path.resolve('packages/extension-table-plus/src'),
+        '@cherrystudio/ai-sdk-provider': path.resolve('packages/ai-sdk-provider/src')
       }
     },
     optimizeDeps: {
@@ -103,11 +105,11 @@ export default defineConfig({
       target: 'esnext',
       rollupOptions: {
         input: {
-          index: resolve(__dirname, 'src/renderer/index.html'),
-          miniWindow: resolve(__dirname, 'src/renderer/miniWindow.html'),
-          selectionToolbar: resolve(__dirname, 'src/renderer/selectionToolbar.html'),
-          selectionAction: resolve(__dirname, 'src/renderer/selectionAction.html'),
-          traceWindow: resolve(__dirname, 'src/renderer/traceWindow.html')
+          index: path.resolve(__dirname, 'src/renderer/index.html'),
+          miniWindow: path.resolve(__dirname, 'src/renderer/miniWindow.html'),
+          selectionToolbar: path.resolve(__dirname, 'src/renderer/selectionToolbar.html'),
+          selectionAction: path.resolve(__dirname, 'src/renderer/selectionAction.html'),
+          traceWindow: path.resolve(__dirname, 'src/renderer/traceWindow.html')
         },
         onwarn(warning, warn) {
           if (warning.code === 'COMMONJS_VARIABLE_IN_ESM') return
