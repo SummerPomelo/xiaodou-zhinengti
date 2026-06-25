@@ -69,7 +69,7 @@ function buildContextHint(errorInfo: Record<string, unknown>, context?: Diagnosi
     msg.includes('forbidden')
   ) {
     const provider = errorInfo.provider || context?.providerName || 'the provider'
-    return `## Context\nThe user is calling ${provider} API and got an authentication error. 小豆万象 lets users configure API keys per provider in provider settings.\n`
+    return `## Context\nThe user is calling ${provider} API and got an authentication error. 智能体 lets users configure API keys per provider in provider settings.\n`
   }
 
   // Quota / rate limit
@@ -92,7 +92,7 @@ function buildContextHint(errorInfo: Record<string, unknown>, context?: Diagnosi
     msg.includes('proxy') ||
     msg.includes('certificate')
   ) {
-    return `## Context\nNetwork or proxy error. 小豆万象 supports HTTP/SOCKS proxy configuration in general settings. The user may be behind a firewall or using a custom API endpoint.\n`
+    return `## Context\nNetwork or proxy error. 智能体 supports HTTP/SOCKS proxy configuration in general settings. The user may be behind a firewall or using a custom API endpoint.\n`
   }
 
   // MCP
@@ -106,7 +106,7 @@ function buildContextHint(errorInfo: Record<string, unknown>, context?: Diagnosi
   }
 
   // Generic
-  return `## Context\n小豆万象 is an AI chat app connecting to LLM providers (OpenAI, Anthropic, Google, Ollama, etc.) with API keys. Error occurred during ${source || 'chat'}.\n`
+  return `## Context\n智能体 is an AI chat app connecting to LLM providers (OpenAI, Anthropic, Google, Ollama, etc.) with API keys. Error occurred during ${source || 'chat'}.\n`
 }
 
 function parseResponse(raw: string): DiagnosisResult {
@@ -171,7 +171,7 @@ export async function diagnoseError(
   // Build context hint based on error source
   const contextHint = buildContextHint(errorInfo, context)
 
-  const prompt = `You are an error diagnosis assistant for 小豆万象, an AI chat desktop app.
+  const prompt = `You are an error diagnosis assistant for 智能体, an AI chat desktop app.
 Analyze the error and return a JSON diagnosis in ${language}.
 
 ${contextHint}
@@ -217,7 +217,7 @@ Output: {"summary":"OpenAI API key is invalid or expired","category":"auth","exp
  * Returns a one-line summary in the user's language, or empty string on failure.
  */
 export async function classifyErrorByAI(error: SerializedError, language: string): Promise<string> {
-  const prompt = `You are an error diagnosis assistant for 小豆万象. Summarize this error in one sentence (max 30 words) in ${language}. Return ONLY the summary text, no JSON, no markdown, no quotes.`
+  const prompt = `You are an error diagnosis assistant for 智能体. Summarize this error in one sentence (max 30 words) in ${language}. Return ONLY the summary text, no JSON, no markdown, no quotes.`
   const content = `Error: ${error.name}: ${error.message}`
 
   const modelsToTry = await buildModelsToTry()

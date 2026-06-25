@@ -26,7 +26,7 @@ export default abstract class BaseWebSearchProvider {
   public defaultHeaders() {
     return {
       'HTTP-Referer': 'https://cherry-ai.com',
-      'X-Title': '小豆万象'
+      'X-Title': '智能体'
     }
   }
 

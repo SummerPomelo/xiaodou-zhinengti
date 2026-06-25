@@ -1,4 +1,4 @@
-﻿// don't reorder this file, it's used to initialize the app data dir and
+// don't reorder this file, it's used to initialize the app data dir and
 // other which should be run before the main process is ready
 // eslint-disable-next-line
 import './bootstrap'
@@ -16,10 +16,10 @@ import process from 'node:process'
 
 import { registerIpc } from './ipc'
 import { agentService } from './services/agents'
-// import { schedulerService } from './services/agents/services/SchedulerService' // Disabled for 小豆万象
-// import { bootstrapBuiltinAgents } from './services/agents/services/builtin/BuiltinAgentBootstrap' // Disabled for 小豆万象
-// import { channelManager } from './services/agents/services/channels' // Disabled for 小豆万象
-// import { registerSessionStreamIpc } from './services/agents/services/channels/sessionStreamIpc' // Disabled for 小豆万象
+// import { schedulerService } from './services/agents/services/SchedulerService' // Disabled for 智能体
+// import { bootstrapBuiltinAgents } from './services/agents/services/builtin/BuiltinAgentBootstrap' // Disabled for 智能体
+// import { channelManager } from './services/agents/services/channels' // Disabled for 智能体
+// import { registerSessionStreamIpc } from './services/agents/services/channels/sessionStreamIpc' // Disabled for 智能体
 import { analyticsService } from './services/AnalyticsService'
 import { apiServerService } from './services/ApiServerService'
 import { appMenuService } from './services/AppMenuService'
@@ -27,7 +27,7 @@ import { configManager } from './services/ConfigManager'
 import { lanTransferClientService } from './services/lanTransfer'
 import mcpService from './services/MCPService'
 import { localTransferService } from './services/LocalTransferService'
-// import { openClawService } from './services/OpenClawService' // Disabled for 小豆万象
+// import { openClawService } from './services/OpenClawService' // Disabled for 智能体
 import { nodeTraceService } from './services/NodeTraceService'
 import powerMonitorService from './services/PowerMonitorService'
 import {
@@ -195,7 +195,7 @@ if (!app.requestSingleInstanceLock()) {
     // Setup deep link for AppImage on Linux
     await setupAppImageDeepLink()
 
-    // DevTools extension installation disabled for 小豆万象 dev builds
+    // DevTools extension installation disabled for 智能体 dev builds
     // installExtension([REDUX_DEVTOOLS, REACT_DEVELOPER_TOOLS])
     //   .then((name) => logger.info(`Added Extension:  ${name}`))
     //   .catch((err) => logger.error('An error occurred: ', err))
@@ -203,7 +203,7 @@ if (!app.requestSingleInstanceLock()) {
     void runAsyncFunction(async () => {
       // Initialize built-in skills and agents (sequential to avoid SQLITE_BUSY)
       // TODO: v2 lifecycle
-      // await bootstrapBuiltinAgents() // Disabled for 小豆万象
+      // await bootstrapBuiltinAgents() // Disabled for 智能体
 
       // Start API server if enabled or if agents exist
       try {
@@ -229,13 +229,13 @@ if (!app.requestSingleInstanceLock()) {
         }
 
         // Restore CherryClaw schedulers after services are ready
-        // await schedulerService.restoreSchedulers() // Disabled for 小豆万象
+        // await schedulerService.restoreSchedulers() // Disabled for 智能体
 
         // Register IPC handlers for session stream before starting channels
-        // registerSessionStreamIpc() // Disabled for 小豆万象
+        // registerSessionStreamIpc() // Disabled for 智能体
 
         // Start CherryClaw channel adapters (Telegram, etc.)
-        // await channelManager.start() // Disabled for 小豆万象
+        // await channelManager.start() // Disabled for 智能体
       } catch (error: any) {
         logger.error('Failed to check/start API server:', error)
       }
@@ -296,10 +296,10 @@ if (!app.requestSingleInstanceLock()) {
     }
 
     try {
-      // schedulerService.stopAll() // Disabled for 小豆万象
-      // await channelManager.stop() // Disabled for 小豆万象
-      // await analyticsService.destroy() // Disabled for 小豆万象
-      // await openClawService.stopGateway() // Disabled for 小豆万象
+      // schedulerService.stopAll() // Disabled for 智能体
+      // await channelManager.stop() // Disabled for 智能体
+      // await analyticsService.destroy() // Disabled for 智能体
+      // await openClawService.stopGateway() // Disabled for 智能体
       await mcpService.cleanup()
       await apiServerService.stop()
     } catch (error) {

@@ -63,7 +63,7 @@ import NotificationService from './services/NotificationService'
 import * as NutstoreService from './services/NutstoreService'
 import ObsidianVaultService from './services/ObsidianVaultService'
 import { ocrService } from './services/ocr/OcrService'
-// import { openClawService } from './services/OpenClawService' // Disabled for 小豆万象
+// import { openClawService } from './services/OpenClawService' // Disabled for 智能体
 import { isOvmsSupported } from './services/OvmsManager'
 import powerMonitorService from './services/PowerMonitorService'
 import { proxyManager } from './services/ProxyManager'
@@ -1151,18 +1151,18 @@ export async function registerIpc(mainWindow: BrowserWindow, app: Electron.App) 
   })
 
   // OpenClaw
-//   ipcMain.handle(IpcChannel.OpenClaw_CheckInstalled, openClawService.checkInstalled) // Disabled for 小豆万象
-//   ipcMain.handle(IpcChannel.OpenClaw_Install, openClawService.install) // Disabled for 小豆万象
-//   ipcMain.handle(IpcChannel.OpenClaw_Uninstall, openClawService.uninstall) // Disabled for 小豆万象
-//   ipcMain.handle(IpcChannel.OpenClaw_StartGateway, openClawService.startGateway) // Disabled for 小豆万象
-//   ipcMain.handle(IpcChannel.OpenClaw_StopGateway, openClawService.stopGateway) // Disabled for 小豆万象
-//   ipcMain.handle(IpcChannel.OpenClaw_GetStatus, openClawService.getStatus) // Disabled for 小豆万象
-//   ipcMain.handle(IpcChannel.OpenClaw_CheckHealth, openClawService.checkHealth) // Disabled for 小豆万象
-//   ipcMain.handle(IpcChannel.OpenClaw_GetDashboardUrl, openClawService.getDashboardUrl) // Disabled for 小豆万象
-//   ipcMain.handle(IpcChannel.OpenClaw_SyncConfig, openClawService.syncProviderConfig) // Disabled for 小豆万象
-//   ipcMain.handle(IpcChannel.OpenClaw_GetChannels, openClawService.getChannelStatus) // Disabled for 小豆万象
-//   ipcMain.handle(IpcChannel.OpenClaw_CheckUpdate, openClawService.checkUpdate) // Disabled for 小豆万象
-//   ipcMain.handle(IpcChannel.OpenClaw_PerformUpdate, openClawService.performUpdate) // Disabled for 小豆万象
+//   ipcMain.handle(IpcChannel.OpenClaw_CheckInstalled, openClawService.checkInstalled) // Disabled for 智能体
+//   ipcMain.handle(IpcChannel.OpenClaw_Install, openClawService.install) // Disabled for 智能体
+//   ipcMain.handle(IpcChannel.OpenClaw_Uninstall, openClawService.uninstall) // Disabled for 智能体
+//   ipcMain.handle(IpcChannel.OpenClaw_StartGateway, openClawService.startGateway) // Disabled for 智能体
+//   ipcMain.handle(IpcChannel.OpenClaw_StopGateway, openClawService.stopGateway) // Disabled for 智能体
+//   ipcMain.handle(IpcChannel.OpenClaw_GetStatus, openClawService.getStatus) // Disabled for 智能体
+//   ipcMain.handle(IpcChannel.OpenClaw_CheckHealth, openClawService.checkHealth) // Disabled for 智能体
+//   ipcMain.handle(IpcChannel.OpenClaw_GetDashboardUrl, openClawService.getDashboardUrl) // Disabled for 智能体
+//   ipcMain.handle(IpcChannel.OpenClaw_SyncConfig, openClawService.syncProviderConfig) // Disabled for 智能体
+//   ipcMain.handle(IpcChannel.OpenClaw_GetChannels, openClawService.getChannelStatus) // Disabled for 智能体
+//   ipcMain.handle(IpcChannel.OpenClaw_CheckUpdate, openClawService.checkUpdate) // Disabled for 智能体
+//   ipcMain.handle(IpcChannel.OpenClaw_PerformUpdate, openClawService.performUpdate) // Disabled for 智能体
 
   // WeChat
   ipcMain.handle(IpcChannel.WeChat_HasCredentials, async (_, channelId: string) => {

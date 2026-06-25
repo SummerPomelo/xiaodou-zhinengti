@@ -61,7 +61,7 @@ export const syncMCPRouterServers = async (
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
         'HTTP-Referer': 'https://cherry-ai.com',
-        'X-Title': '小豆万象'
+        'X-Title': '智能体'
       },
       body: JSON.stringify({})
     })

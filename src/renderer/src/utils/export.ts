@@ -908,7 +908,7 @@ export const exportMarkdownToJoplin = async (
       body: JSON.stringify({
         title: title,
         body: content,
-        source: '小豆万象'
+        source: '智能体'
       })
     })
 

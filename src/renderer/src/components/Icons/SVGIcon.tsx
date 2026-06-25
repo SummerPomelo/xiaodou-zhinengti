@@ -291,7 +291,7 @@ export function McpLogo(props: SVGProps<SVGSVGElement>) {
   )
 }
 
-// Disabled for 小豆万象 - OpenClawIcon
+// Disabled for 智能体 - OpenClawIcon
 // export function OpenClawIcon(props: SVGProps<SVGSVGElement>) {
 //   return (
 //     <svg
@@ -318,7 +318,7 @@ export function McpLogo(props: SVGProps<SVGSVGElement>) {
 //   )
 // }
 // 
-// Disabled for 小豆万象 - OpenClawSidebarIcon
+// Disabled for 智能体 - OpenClawSidebarIcon
 // export function OpenClawSidebarIcon(props: SVGProps<SVGSVGElement>) {
 //   return (
 //     <svg
