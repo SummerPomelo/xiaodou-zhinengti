@@ -8,9 +8,8 @@
 - **上游版权:** Copyright (c) CherryHQ
 
 ## 本项目
-- **项目名称:** 小豆智能体 (小豆万象)
+- **项目名称:** 智能体
 - **仓库地址:** https://github.com/SummerPomelo/xiaodou-zhinengti
-- **开发者:** 小豆万象 - AI漫剧/短剧生产工具
 
 ## AGPL-3.0 合规说明
 本软件基于 Cherry Studio Community Edition v1.9.9 进行二次开发与深度定制，适配 AI 漫剧、AI 短剧的生产场景。

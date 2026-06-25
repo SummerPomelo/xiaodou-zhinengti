@@ -1,10 +1,10 @@
-# 小豆智能体 (小豆万象)
+# 智能体
 
 专为 AI 漫剧、AI 短剧生产场景量身打造的桌面端工具软件。
 
 ## 项目简介
 
-小豆智能体是基于 [Cherry Studio](https://github.com/CherryHQ/cherry-studio) v1.9.9 开源项目进行二次开发与深度优化的桌面端应用，聚焦小说 IP 的 AI 可视化全链路工业化生产。
+智能体是基于 [Cherry Studio](https://github.com/CherryHQ/cherry-studio) v1.9.9 开源项目进行二次开发与深度优化的桌面端应用，聚焦小说 IP 的 AI 可视化全链路工业化生产。
 
 核心功能模块：
 - AI 智能分镜制作（适配小说改编场景）
