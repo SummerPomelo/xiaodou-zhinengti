@@ -284,7 +284,7 @@ const TabsContainer: React.FC<TabsContainerProps> = ({ children }) => {
               <AboutSection>
                 <AboutSectionTitle>修改说明</AboutSectionTitle>
                 <AboutDesc>基于 Cherry Studio v1.9.9 二次开发：</AboutDesc>
-                <AboutDesc>- 应用名称由「小豆智能体」改为「智能体」</AboutDesc>
+                
                 <AboutDesc>- 全部图标替换为 Electron 默认图标</AboutDesc>
                 <AboutDesc>- 精简为顶层导航栏布局（会话 / 助手库 / 设置）</AboutDesc>
                 <AboutDesc>- 定制设置页面仅保留服务商管理</AboutDesc>
