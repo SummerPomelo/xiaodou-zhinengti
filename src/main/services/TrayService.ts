@@ -1,4 +1,4 @@
-﻿import { isLinux, isMac, isWin } from '@main/constant'
+import { isLinux, isMac, isWin } from '@main/constant'
 import { locales } from '@main/utils/locales'
 import type { MenuItemConstructorOptions } from 'electron'
 import { app, Menu, nativeImage, nativeTheme, Tray } from 'electron'
@@ -50,7 +50,7 @@ export class TrayService {
       this.tray.setContextMenu(this.contextMenu)
     }
 
-    this.tray.setToolTip('\u5c0f\u8c46\u667a\u80fd\u4f53')
+    this.tray.setToolTip('\u667a\u80fd\u4f53')
 
     this.tray.on('right-click', () => {
       if (this.contextMenu) {

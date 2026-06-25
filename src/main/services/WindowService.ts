@@ -1,4 +1,4 @@
-﻿// just import the themeService to ensure the theme is initialized
+// just import the themeService to ensure the theme is initialized
 import './ThemeService'
 
 import { is } from '@electron-toolkit/utils'
@@ -12,7 +12,6 @@ import { app, BrowserWindow, nativeImage, nativeTheme, screen, shell } from 'ele
 import windowStateKeeper from 'electron-window-state'
 import path, { join } from 'path'
 
-import iconPath from '../../../build/icon.png?asset'
 import { titleBarOverlayDark, titleBarOverlayLight } from '../config'
 import { configManager } from './ConfigManager'
 import { contextMenu } from './ContextMenu'
@@ -26,7 +25,6 @@ const DEFAULT_MINIWINDOW_HEIGHT = 400
 const logger = loggerService.withContext('WindowService')
 
 // Create nativeImage for Linux window icon (required for Wayland)
-const linuxIcon = isLinux ? nativeImage.createFromPath(iconPath) : undefined
 
 export class WindowService {
   private static instance: WindowService | null = null
@@ -92,7 +90,6 @@ export class WindowService {
       ...(windowsBackgroundMaterial ? { backgroundMaterial: windowsBackgroundMaterial } : {}),
       ...(mainWindowBackgroundColor ? { backgroundColor: mainWindowBackgroundColor } : {}),
       darkTheme: nativeTheme.shouldUseDarkColors,
-      ...(isLinux ? { icon: linuxIcon } : {}),
       webPreferences: {
         preload: join(__dirname, '../preload/index.js'),
         sandbox: false,

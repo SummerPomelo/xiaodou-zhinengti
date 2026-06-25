@@ -232,8 +232,8 @@ const TabsContainer: React.FC<TabsContainerProps> = ({ children }) => {
             styles={{ body: { padding: '24px 28px' } }}>
             <AboutContent>
               <AboutHeader>
-                <AboutTitle>小豆智能体</AboutTitle>
-                <AboutVersion>v1.1.9</AboutVersion>
+                <AboutTitle>智能体</AboutTitle>
+                <AboutVersion>v1.2.0</AboutVersion>
               </AboutHeader>
               <AboutDesc>基于 Cherry Studio Community Edition 的二次开发定制版</AboutDesc>
               <AboutDesc style={{ fontSize: 12, color: 'var(--color-text-3)' }}>面向 AI 漫剧/短剧生产场景</AboutDesc>
@@ -246,10 +246,7 @@ const TabsContainer: React.FC<TabsContainerProps> = ({ children }) => {
                   <AboutLabel>许可证</AboutLabel>
                   <AboutValue>GNU AGPL-3.0</AboutValue>
                 </AboutRow>
-                <AboutRow>
-                  <AboutLabel>版权归属</AboutLabel>
-                  <AboutValue>Copyright (c) 2025 小豆万象</AboutValue>
-                </AboutRow>
+                
                 <AboutRow>
                   <AboutLabel>源码仓库</AboutLabel>
                   <AboutLink href="https://github.com/SummerPomelo/xiaodou-zhinengti" target="_blank">
